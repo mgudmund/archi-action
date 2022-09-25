@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  run-archi-cli:
+    runs-on: ubuntu-latest
+    name: Run Archi CLI
+    steps:
+      - name: Archi CLI Report
+        id: archi-cli
+        uses: mgudmund/archi-action
+        with:
+          options: '--help'
+      
