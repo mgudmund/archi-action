@@ -8,11 +8,12 @@ ARG ARCHI_USER=archi
 
 RUN apt-get update && apt-get install -y sudo curl unzip libgtk2.0-0 libxtst6 xvfb git && apt-get clean
 
-RUN curl -L -o /archi.tar.gz https://github.com/archimatetool/archi/archive/refs/tags/release_${ARCHI_VERSION}.tar.gz
-# https://github.com/archimatetool/archi/archive/refs/tags/release_4.10.0.tar.gz
-RUN tar -zxvf /archi.tar.gz
-RUN ls -la 
-RUN rm /archi.tar.gz
+RUN curl 'https://www.archimatetool.com/downloads/' \
+         -k -L --data-raw "ad240cb=archi%2F${ARCHI_VERSION}%2FArchi-Linux64-${ARCHI_VERSION}.tgz" \
+         > /Archi-Linux64-${ARCHI_VERSION}.tgz && \
+    tar -zxvf /Archi-Linux64-${ARCHI_VERSION}.tgz && \
+    rm -f /Archi-Linux64-${ARCHI_VERSION}.tgz
+    
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/$ARCHI_USER && \
