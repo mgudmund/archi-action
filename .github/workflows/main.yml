@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Archi CLI Report
         id: archi-cli
-        uses: mgudmund/archi-action
+        uses: mgudmund/archi-action@v1
         with:
           options: '--help'
       
