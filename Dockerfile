@@ -33,4 +33,4 @@ ENV HOME /home/$ARCHI_USER
 
 WORKDIR /home/$ARCHI_USER
 
-CMD ["archi", "--help"]
+ENTRYPOINT ["archi"]
