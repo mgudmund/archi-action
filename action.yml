@@ -1,0 +1,16 @@
+# action.yml
+name: 'archi-cli'
+description: 'Run the Archi CLI'
+inputs:
+  options:  # id of input
+    description: 'archi cli options'
+    required: true
+    default: 'help'
+outputs:
+  none: # id of output
+    description: 'none'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.options }}
